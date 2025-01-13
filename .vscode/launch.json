@@ -1,0 +1,57 @@
+{
+    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "systemC запуск?",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/systemc_ehmm/src/main.cpp",
+            "args": [
+                "g++ -std=c++11 -o model -L /home/root/lib/systemc-2.3.3/lib-linux64 -lsystemc -lm -g -Wall -pedantic -Wno-long-long -DSC_INCLUDE_DYNAMIC_PROCESSES -fpermissive -I /home/root/lib/systemc-2.3.3/include src/**"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Включить автоматическое форматирование для gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Задать для варианта приложения дизассемблирования значение Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+
+        {
+            "name": "(gdb) Запустить",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/ncpu",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Включить автоматическое форматирование для gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "SystemC - Build",
+            "miDebuggerPath": "gdb"
+        }
+
+    ]
+}
