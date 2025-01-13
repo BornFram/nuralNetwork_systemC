@@ -66,9 +66,11 @@ void MainController::thred()
     for (int i=0; i < allNNStructSize; i++)
     {
         wr_o.write(true);
+        rd_o.write(true);
         cout << "wr_o = " << wr_o << endl;
         wait(from_memory.value_changed_event());
         wr_o.write(false);
+        rd_o.write(false);
         cout << "wr_o = " << wr_o << endl;
         to_memory.write(allNNstruct[i]);
         memory_addr.write(memoryTop);
